@@ -9,49 +9,54 @@ package cuboid_project;
  *
  * @author agendron
  */
-public class Cuboid <T>{
+public class Cuboid <T extends Number>{
     
-    private double length;
-    private double height;
-    private double width;
-    
+    private T length;
+    private T height;
+    private T width;
+    private T volume;
     
     public Cuboid() {
         
-        /*public setLength(double length)
-        {
-            this.length = length;
-        }*/
     }
 
-    public void setLength(double length) {
+    Cuboid(T length, T height, T width) {
+        this.length = length;
+        this.height = height;
+        this.width = width;
+    }
+
+    public Double getVolume() {
+        return length.doubleValue()*height.doubleValue()*width.doubleValue();
+    }
+
+    public void setLength(T length) {
         this.length = length;
     }
     
-    public Double getLength()
-    {
+    public T getLength() {
         return length;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(T height) {
         this.height = height;
     }
     
-    public Double getHeight()
-    {
+    public T getHeight() {
         return height;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(T width) {
         this.width = width;
     }
     
-    public Double getWidth()
-    {
+    public T getWidth() {
         return width;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Cuboid{" + "length=" + length + ", height=" + height + ", width=" + width + '}';
+    }
     
 }
